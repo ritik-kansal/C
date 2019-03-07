@@ -1,50 +1,3 @@
-#include<stdio.h>
-int main()
-    {
-        int n,max=0;
-        scanf("%d",&n);
-        int b[n+1],g[n+1],beat[n+1],beatg[n+1];
-        int i,j;
-        for(i=1;i<n+1;i++)
-        {
-            scanf("%d",&b[i]);
-        }
-        for(i=1;i<n+1;i++)
-        {
-            scanf("%d",&g[i]);
-            beat[i]=0;
-            beatg[i]=0;
-        }
-        for(i=1;i<n+1;i++)
-        {
-
-            if(g[b[i]]!=i)
-            {
-                beat[g[b[i]]]++;
-            }
-            if(b[g[i]]!=i)
-            {
-                beatg[b[g[i]]]++;
-            }
-        }
-        max=beat[1];
-        for(i=1;i<n+1;i++)
-        {
-            printf("%d  %d\n",beat[i],beatg[i]);
-            if(max<beat[i])
-            {
-                max=beat[i];
-            }
-        }
-        for(i=1;i<n+1;i++)
-        {
-            if(max<beatg[i])
-            {
-                max=beatg[i];
-            }
-        }
-        printf("Worst case is %d ",max);
-    }
 /*The students of college are getting jealous of the students of college . managed to beat in all the sports and games events. The main strength of the students of is their unity. The students of decide to destroy this unity. The geeks of prepared a special kind of perfume. Anyone who inhales this perfume becomes extremely violent. The students of somehow manage to spread this perfume throughout
 
 's campus atmosphere.
@@ -111,3 +64,50 @@ Source Limit: 1024 KB
 Marking Scheme: Marks are awarded if any testcase passes.
 Allowed Languages: Bash, C, C++, C++14, Clojure, C#, D, Erlang, F#, Go, Groovy, Haskell, Java, Java 8, JavaScript(Rhino), JavaScript(Node.js), TypeScript, Julia, Kotlin, Lisp, Lisp (SBCL), Lua, Objective-C, OCaml, Octave, Pascal, Perl, PHP, Python, Python 3, R(RScript), Racket, Ruby, Rust, Scala, Swift, Swift-4.1, Visual Basic
 */
+#include<stdio.h>
+int main()
+    {
+        int n,max=0;
+        scanf("%d",&n);
+        int b[n+1],g[n+1],beat[n+1],beatg[n+1];
+        int i,j;
+        for(i=1;i<n+1;i++)
+        {
+            scanf("%d",&b[i]);
+        }
+        for(i=1;i<n+1;i++)
+        {
+            scanf("%d",&g[i]);
+            beat[i]=0;
+            beatg[i]=0;
+        }
+        for(i=1;i<n+1;i++)
+        {
+
+            if(g[b[i]]!=i)
+            {
+                beat[g[b[i]]]++;
+            }
+            if(b[g[i]]!=i)
+            {
+                beatg[b[g[i]]]++;
+            }
+        }
+        max=beat[1];
+        for(i=1;i<n+1;i++)
+        {
+            printf("%d  %d\n",beat[i],beatg[i]);
+            if(max<beat[i])
+            {
+                max=beat[i];
+            }
+        }
+        for(i=1;i<n+1;i++)
+        {
+            if(max<beatg[i])
+            {
+                max=beatg[i];
+            }
+        }
+        printf("Worst case is %d ",max);
+    }
