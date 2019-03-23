@@ -144,7 +144,7 @@ void input()
 void output2()
     {
         
-        int i2,j2,s2=0,jasos=1,sum2[8]={0};
+        int i2=0,j2=0,s2=0,jasos=1,sum2[8]={0},b=0;
         sum2[s2]=0;
         j2=0;
         //diagnol 1 sum 
@@ -156,19 +156,22 @@ void output2()
         //computer move
         if(sum2[s2]==158||sum2[s2]==176)
         {
+            //printf("                      ******diagnol 1");
             jasos=0;
             j2=0;
             for(i2=0;i2<5;i2+=2)
             {
-                if(a[i2][j2]==32)
+                if(a[i2][j2]==0)
                 {
                     a[i2][j2]='X';
+                    break;
                 }
                 j2+=2;
             }
         }
         //diagnol 2 sum
-
+        if(jasos)
+        {
             s2++;
             sum2[s2]=0;
             i2=4;
@@ -180,19 +183,24 @@ void output2()
         //computer move
             if(sum2[s2]==158||sum2[s2]==176)
             {
+                //printf("                      ******diagnol 2");
                 jasos=0;
                 i2=4;
                 for(j2=0;j2<5;j2+=2)
                 {
-                    if(a[i2][j2]==32)
+                    if(a[i2][j2]==0)
                     {
                         a[i2][j2]='X';
+                        break;
                     }
                     i2-=2;
                 }
-            }    
-        //rows sum
+            } 
+        }
 
+        //rows sum
+        if(jasos)
+        {
             s2++;
             for(i2=0;i2<5;i2+=2)
             {
@@ -204,19 +212,25 @@ void output2()
                 //computer move
                 if(sum2[s2]==158||sum2[s2]==176)
                 {
+                    //printf("                      ******rows");
                     jasos=0;
                     for(j2=0;j2<5;j2+=2)
                     {
-                        if(a[i2][j2]==32)
+                        if(a[i2][j2]==0)
                         {
                             a[i2][j2]='X';
+                            break;
                         }
                     }
                 }
                 
                 s2++;
             }
+        }
+
         //column sum
+        if(jasos)
+        {
             for(j2=0;j2<5;j2+=2)
             {
                 sum2[s2]=0;
@@ -226,18 +240,46 @@ void output2()
                 }
                 if(sum2[s2]==158||sum2[s2]==176)
                 {
+                    //printf("                      ******col");
                     jasos=0;
                     for(i2=0;i2<5;i2+=2)
                     {
-                        if(a[i2][j2]==32)
+                        if(a[i2][j2]==0)
                         {
                             a[i2][j2]='X';
+                            break;
                         }
                     }
                 }
                // j2++;
                 s2++;
             }
+        }
+        if(jasos)
+        {
+            printf("sab moh maya hai");
+            for(i2=0;i2<5;i2+=2)
+            {
+                for(j2=0;j2<5;j2+=2)
+                {
+                printf("%d\n",a[i2][j2]);
+                    if(a[i2][j2]==0)
+                    {
+                    printf("\nwhere it should be\n");
+                        b=1;
+                        a[i2][j2]='X';
+                        break;
+                    }
+                }
+                printf("\n");
+                if(b)
+                break;
+            }
+        }
+        // for(i2=0;i2<8;i2++)
+        // {
+        //     printf("          output2       sum is %d\n",sum2[i2]);
+        // }
     }
 int main()
     {
@@ -263,12 +305,15 @@ int main()
         }
         else
         {
+            printf("                              In case 2  %d\n",a[0][0]);
             output2();
             display();
-            // input2();
-            // output2();
-            // input2();
-            // output2();
+            input();
+            output2();
+            display();
+            input();
+            output2();
+            display();
             // input2();
             // output2();
         }
