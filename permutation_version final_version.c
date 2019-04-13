@@ -14,18 +14,18 @@ int main()
         printf("Enter numbers in list: ");
         scanf("%d",&n);
         int f=fact(n);
-        printf("fact=%d\n",f);
+        // printf("fact=%d\n",f);
         int cv,flag,loop,i,j,k;
-        printf("checkpoint1\n");
+        // printf("checkpoint1\n");
         char a[f][n][v],ac[f][n],b[n][v];
-        printf("checkpoint2\n");
-        printf("Enter elements of list separated by space: ");
+        // printf("checkpoint2\n");
         for(i=0;i<n;i++)//input elements
         {
+            printf("Enter element of list: ");  
             fflush(stdin);
             gets(b[i]);//scanf("%d",&b[i]);
-            puts(b[i]);
-            printf("\n");
+            // puts(b[i]);
+            // printf("\n");
         }
         for(j=0;j<n;j++)//permutations formed and stored in first layer of cubical storage
         {
